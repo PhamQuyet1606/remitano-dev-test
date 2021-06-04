@@ -10,6 +10,9 @@ import {AppContext} from "../../contexts/AppContext";
 import Typography from "@material-ui/core/Typography";
 import FormControl from "@material-ui/core/FormControl";
 import clsx from "clsx";
+import {
+    useHistory,
+} from "react-router-dom";
 
 const authFormStyle = makeStyles(theme => ({
     root: {
@@ -181,9 +184,12 @@ const AuthInputForm = ({state, dispatch}) => {
 
 const AuthMenu = ({state, dispatch}) => {
     const classes = authFormStyle();
+    let history = useHistory();
+
     const handleLogout = (evt) => {
         evt.preventDefault();
         dispatch(ACTIONS.un_auth());
+        history.push('/');
     };
 
     return (
