@@ -1,6 +1,6 @@
 const express = require("express");
-const { admin, db } = require('../utils/firebase/index');
-const { getAllVideos, addVideo } = require('../services/video/index');
+const { admin, db } = require('../utils/firebase');
+const { getAllVideos, addVideo } = require('../services/video');
 
 const fetchVideos = (request, response, next) => {
     getAllVideos()

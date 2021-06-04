@@ -39,7 +39,7 @@ const VideoListItem = ({video}) => {
     const classes = useStyles();
 
     return (
-        <Card style={{backgroundColor: 'transparent', width: '100%'}} >
+        <Card style={{backgroundColor: 'transparent', width: '100%', marginBottom: 15}} >
             <CardContent className={classes.content}>
                 <Grid container spacing={2}>
                     <Grid item md={6} sm={12} xs={12}>

@@ -1,4 +1,4 @@
-const { admin, db } = require('../../utils/firebase/index');
+const { admin, db } = require('../../utils/firebase');
 
 const getAllVideos = () => {
     return new Promise((resolve) => {

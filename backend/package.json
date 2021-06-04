@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "build": "babel src --out-dir build --source-maps=inline --verbose",
+    "start": "nodemon src/app.js",
+    "start:prod": "npm run build --watch & sleep 1 && nodemon --watch build build/app.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -14,6 +16,9 @@
     "firebase-admin": "^8.8.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.14.3",
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.4",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "eslint": "^5.12.0",

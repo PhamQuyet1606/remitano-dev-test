@@ -1,8 +1,8 @@
 const admin = require('firebase-admin');
-const credentials = require("./credentials.json");
+const {firebaseCredentials} = require("./config");
 
 admin.initializeApp({
-    credential: admin.credential.cert(credentials),
+    credential: admin.credential.cert(firebaseCredentials),
     databaseURL: 'https://remitano-dev-test.firebaseio.com',
 });
 const db = admin.firestore();

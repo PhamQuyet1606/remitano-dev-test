@@ -1,8 +1,8 @@
 const firebase = require('firebase');
-const config = require('../../utils/firebase/config');
-const { admin, db } = require('../../utils/firebase/index');
+const {firestoreConfigs} = require('../../utils/firebase/config');
+const { admin, db } = require('../../utils/firebase');
 
-firebase.initializeApp(config);
+firebase.initializeApp(firestoreConfigs);
 
 const checkAuth = async (token) => {
     return new Promise((resolve) => {

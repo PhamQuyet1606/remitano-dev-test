@@ -11,10 +11,6 @@ import VideoSharingForm from "./components/VideoSharing";
 import VideoList from "./components/Videos/VideoList";
 
 function App() {
-  // useEffect(() => {
-  //   getYoutubeVideoInfo("https://www.youtube.com/watch?v=hlWiI4xVXKY");
-  // }, []);
-
   return (
       <BrowserRouter>
         <AppProvider>

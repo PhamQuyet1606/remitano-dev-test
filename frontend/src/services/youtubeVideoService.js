@@ -1,9 +1,5 @@
-import axios from 'axios';
+import defaultAxios from 'axios';
 import customAxios from './custom-axios';
-
-const axiosInstance = axios.create({
-    baseURL: 'https://www.googleapis.com/youtube/v3/',
-});
 
 const extractYoutubeVideoIdFromURL = (url) => {
     const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
@@ -20,7 +16,7 @@ export const getYoutubeVideoInfo = (url) => {
   };
 
     return new Promise((resolve) => {
-        axiosInstance.get('/videos', {params})
+        defaultAxios.get('https://www.googleapis.com/youtube/v3/videos', {params})
             .then((res) => {
                 resolve({isError: false, video: {id: videoId, info: res.data.items[0]}});
             })
@@ -52,7 +48,7 @@ export const saveVideo = (data) => {
 };
 
 export const fetchVideos = () => {
-    return customAxios.get('/videos');
+    return defaultAxios.get('http://localhost:3100/api/videos');
 };
 
 

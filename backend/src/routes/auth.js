@@ -1,6 +1,6 @@
 const express = require('express');
 const { validateLoginData } = require('../utils/validators');
-const { checkAuth, checkUserExistByEmail, doLogin, doSignUp, doFetchProfile } = require('../services/auth/index');
+const { checkAuth, checkUserExistByEmail, doLogin, doSignUp, doFetchProfile } = require('../services/auth');
 
 const doAuth = async (request, response) => {
     const user = {
