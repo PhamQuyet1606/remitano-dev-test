@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import AuthComponent from "./components/Auth";
 import {AppProvider} from "./contexts/AppContext";
 import VideoSharingForm from "./components/VideoSharing";
+import VideoList from "./components/Videos/VideoList";
 
 function App() {
   // useEffect(() => {
@@ -29,11 +30,11 @@ function App() {
                 </Grid>
                 <Grid item md={12} className="mt10 non-padding">
                   <Switch>
-                    <Route exact  path="/">
-                      <VideoSharingForm />
+                    <Route exact path="/">
+                      <VideoList/>
                     </Route>
-                    <Route path="/home">
-
+                    <Route path="/shareVideo">
+                      <VideoSharingForm />
                     </Route>
                   </Switch>
                 </Grid>

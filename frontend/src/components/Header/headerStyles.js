@@ -15,7 +15,6 @@ const headerStyles = makeStyles((theme) =>
         },
         btnHome: {
             marginLeft: 0,
-            padding: '12px 0'
         }
     })
 );

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import customAxios from './custom-axios';
 
 const axiosInstance = axios.create({
     baseURL: 'https://www.googleapis.com/youtube/v3/',
@@ -12,7 +13,6 @@ const extractYoutubeVideoIdFromURL = (url) => {
 
 export const getYoutubeVideoInfo = (url) => {
   const videoId = extractYoutubeVideoIdFromURL(url);
-    console.log(videoId);
   const params = {
       id: videoId,
       key: 'AIzaSyA5YEw2RGvy1ayky2XDPqz-ky2ahd7ttA4',
@@ -22,14 +22,37 @@ export const getYoutubeVideoInfo = (url) => {
     return new Promise((resolve) => {
         axiosInstance.get('/videos', {params})
             .then((res) => {
-                console.log(res.data);
-                resolve({isError: false, video: {url: `https://www.youtube.com/embed/${videoId}`, info: res.data.items[0]}});
+                resolve({isError: false, video: {id: videoId, info: res.data.items[0]}});
             })
             .catch((err) => {
-                console.log(err);
-                resolve({isError: true, error: err});
+                resolve({isError: true, error: err.message});
             })
     })
+};
+
+export const saveVideo = (data) => {
+    const body = {
+        shared_by: data.user,
+        videoId: data.video.id,
+        title: data.video.title,
+        description: data.video.description,
+    };
+
+    return new Promise((resolve) => {
+        customAxios({
+            method: 'POST',
+            data: body,
+            url: '/video'
+        }).then((res) => {
+            resolve({isError: false, data: res.data});
+        }).catch((err) => {
+            resolve({isError: true, error: err});
+        })
+    });
+};
+
+export const fetchVideos = () => {
+    return customAxios.get('/videos');
 };
 
 

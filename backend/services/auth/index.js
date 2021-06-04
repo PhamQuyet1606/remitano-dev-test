@@ -16,8 +16,7 @@ const checkAuth = async (token) => {
                 resolve({isError: false, user: user});
             })
             .catch((err) => {
-                console.error('Error while verifying token', err);
-                resolve({isError: true, err});
+                resolve({isError: true, error: err.code});
             });
     });
 };
@@ -33,7 +32,7 @@ const doLogin = async (email, password) => {
                 resolve({isError: false, token});
             })
             .catch((err) => {
-                resolve({ isError: true, err });
+                resolve({ isError: true, error: err.code });
             });
     });
 };
@@ -62,7 +61,7 @@ const doSignUp = async (email, password) => {
                 resolve({isError: false, token});
             })
             .catch((err) => {
-                resolve({ isError: true, err });
+                resolve({ isError: true, error: err.code });
             });
     });
 };
@@ -72,9 +71,11 @@ const doFetchProfile = async (uid) => {
             .auth()
             .getUser(uid)
             .then((userRecord) => {
-                console.log(userRecord);
                 resolve({isError: false, user: userRecord});
             })
+            .catch((err) => {
+                resolve({ isError: true, error: err.code });
+            });
     });
 };
 
@@ -85,7 +86,7 @@ const checkUserExistByEmail = async (email) => {
                 resolve({ isError: false, doesExist: true, user });
             })
             .catch((err) => {
-                resolve({ isError: true, err });
+                resolve({ isError: true, error: err.code });
             });
     });
 };

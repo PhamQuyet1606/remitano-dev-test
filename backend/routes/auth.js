@@ -1,6 +1,4 @@
 const express = require('express');
-const router = express.Router();
-const { db } = require('../utils/firebase/index');
 const { validateLoginData } = require('../utils/validators');
 const { checkAuth, checkUserExistByEmail, doLogin, doSignUp, doFetchProfile } = require('../services/auth/index');
 
@@ -57,12 +55,8 @@ const fetchProfile = (request, response) => {
         })
         .catch((error) => {
             console.error(error);
-            return response.status(500).json({ error: error.code });
+            return response.status(500).json({ error: error });
         });
 };
 
-router.post('/api/checkAuth', doAuthCheck);
-router.post('/api/auth', doAuth);
-router.get('/api/profile', doAuthCheck, fetchProfile);
-
-module.exports = router;
+module.exports = {doAuth, doAuthCheck, fetchProfile};

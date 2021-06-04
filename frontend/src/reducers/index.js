@@ -79,7 +79,7 @@ export const appReducer = (state, action) => {
             return {
                 ...state,
                 error: null,
-                videos: action.videos
+                videos: action.payload
             };
         case ACTION_TYPES.FETCH_VIDEOS_FAILURE:
             return {
@@ -90,7 +90,7 @@ export const appReducer = (state, action) => {
             return {
                 ...state,
                 error: null,
-                recentSharedVideos: [...state.recentSharedVideos, ...action.payload],
+                // recentSharedVideos: [...state.recentSharedVideos, ...action.payload],
             };
         case ACTION_TYPES.SHARE_VIDEO_FAILURE:
             return {

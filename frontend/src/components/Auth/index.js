@@ -194,7 +194,7 @@ const AuthMenu = ({state, dispatch}) => {
                         Hello, {state.profile.email}
                     </Typography>
                 </FormControl>
-                <Button className={classes.submitBtn} color="primary" margin="normal" size="medium" variant="contained">
+                <Button className={classes.submitBtn} href='/shareVideo' color="primary" margin="normal" size="medium" variant="contained">
                     Share Video
                 </Button>
                 <Button className={classes.submitBtn} color="primary" margin="normal" size="medium"  onClick={handleLogout}>

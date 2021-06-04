@@ -43,31 +43,31 @@ export const fetch_profile_failure = (error) => {
 
 export const fetch_videos_init = () => {
     return {
-        type: ACTION_TYPES.FETCH_PROFILE_INIT
+        type: ACTION_TYPES.FETCH_VIDEOS_INIT
     }
 };
 export const fetch_videos_success = (videos) => {
     return {
-        type: ACTION_TYPES.FETCH_PROFILE_SUCCESS,
+        type: ACTION_TYPES.FETCH_VIDEOS_SUCCESS,
         payload: videos
     }
 };
 export const fetch_videos_failure = (error) => {
     return {
-        type: ACTION_TYPES.FETCH_PROFILE_FAILURE,
+        type: ACTION_TYPES.SHARE_VIDEO_FAILURE,
         payload: error
     }
 };
 
 export const share_video_success = (video) => {
     return {
-        type: ACTION_TYPES.FETCH_PROFILE_SUCCESS,
+        type: ACTION_TYPES.SHARE_VIDEO_SUCCESS,
         payload: video
     }
 };
-export const fetch_video_failure = (error) => {
+export const share_video_failure = (error) => {
     return {
-        type: ACTION_TYPES.FETCH_PROFILE_FAILURE,
+        type: ACTION_TYPES.SHARE_VIDEO_FAILURE,
         payload: error
     }
 };
